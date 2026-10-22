@@ -39,14 +39,3 @@ cd ../frontend && npx tsc -b && npx oxlint src
 ```
 - بک‌اند: لایه دیتابیس جدا (`db.py`؛ اتصال فقط‌خواندنی جدا برای هر thread)، اعتبارسنجی ورودی با Pydantic (`schemas.py`)، تبدیل ارقام به فارسی فقط در لایه پاسخ API (`i18n.py`)، وزن‌های رتبه‌بندی به‌صورت ثابت‌های نام‌دار، و fallback قاعده‌محور برای هر فراخوانی LLM.
 - فرانت‌اند: هر صفحه جدا و lazy بارگذاری می‌شود (نقشه Leaflet فقط وقتی لازم است)، ErrorBoundary، صفحه ۴۰۴، اعلان (toast)، انیمیشن‌های ورود صفحه و لیست و شیت و تب و نشان‌ها با احترام به `prefers-reduced-motion`.
-
-## دیپلوی روی لیارا
-```bash
-npm i -g @liara/cli
-liara login
-liara app create pasajyar --platform docker   # یا از پنل
-liara env set LLM_API_KEY=<کلید BoxAPI> LLM_BUDGET_USD=0.5 --app pasajyar
-liara deploy --app pasajyar --port 8000
-```
-- ساخت دیتابیس در Docker build انجام می‌شود، پس فقط حدود ۶۰ مگابایت داده آپلود می‌شود. حجم image حدود ۷۰۰ مگابایت است.
-- اختیاری: برای ماندگار شدن استعلام‌ها و شمارنده هزینه LLM، یک دیسک بسازید و به `/app/state` وصل کنید (`liara disk create`).
