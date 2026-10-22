@@ -1,0 +1,11 @@
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003", "E731"]  # Persian text legitimately contains "ambiguous" characters
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
